@@ -1,0 +1,58 @@
+{
+  "name": "@security-alliance/http-stream-parser",
+  "version": "0.0.1",
+  "author": "Security Alliance",
+  "license": "MIT",
+  "description": "Parse HTTP/1.1 and HTTP/2 messages from bidirectional TCP stream chunks",
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./browser": {
+      "import": "./dist/browser.js",
+      "types": "./dist/browser.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "!dist/__tests__",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/security-alliance/seal-monorepo.git",
+    "directory": "packages/http-stream-parser"
+  },
+  "keywords": [
+    "http",
+    "http2",
+    "parser",
+    "stream",
+    "hpack",
+    "tcp"
+  ],
+  "scripts": {
+    "prepublishOnly": "pnpm run build",
+    "build": "tsc",
+    "test": "vitest run",
+    "prettier:check": "pnpx prettier -c \"**/*.{js,ts,md,json,yml,yaml}\"",
+    "prettier:fix": "pnpx prettier -w \"**/*.{js,ts,md,json,yml,yaml}\""
+  },
+  "dependencies": {
+    "brotli-wasm": "^3.0.1",
+    "fflate": "^0.8.2",
+    "fzstd": "^0.1.1",
+    "http-parser-js": "^0.5.10"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
